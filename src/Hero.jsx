@@ -218,9 +218,9 @@ const Hero = () => {
             Contact
           </button>
 
-          <div className="relative w-80 h-96 bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+          <div className="absolute w-80 h-96 bg-white rounded-2xl shadow-lg overflow-visible p-6 flex inset-x-[65%] inset-y-[65%] ">
             {/* Decorative Top Wave */}
-            <div className="absolute top-0 left-0 w-full h-12 bg-white">
+            <div className="absolute top-0 left-0 w-full h-12 bg-white ">
               <svg
                 className="w-full h-full"
                 xmlns="http://www.w3.org/2000/svg"
@@ -298,26 +298,37 @@ const Hero = () => {
 
             {/* Text Overlay */}
             {/* Text Overlay */}
-            <div className="absolute inset-x-[23px] inset-y-[26px] flex flex-col items-center justify-centerrounded-lg shadow-xl max-w-[317px] p-4 font-poppins text-center">
+            <div className="absolute inset-x-[23px] inset-y-[26px] flex flex-col items-center justify-centerrounded-lg  max-w-[317px] p-4 font-poppins text-center"
+            >
               {/* Title */}
-              <p className="text-black text-lg font-medium leading-snug mb-3 px-2">
+              <p className="text-black text-lg font-medium leading-snug mb-3 px-2 ">
                 {container.title}
               </p>
               {/* Description */}
-              <p className="text-black text-sm font-normal leading-relaxed break-words px-2">
+              <p className="text-black text-sm font-normal leading-relaxed break-words px-2"
+              style={{
+                color: container.id === 1 || container.id === 3 ? '#FEFEFE' : '#082221',
+
+                // color: container.id === 3 ? '#FEFEFE' : '#082221',
+                 // Dynamically set top, right, bottom, left
+              }}
+              >
                 {container.description}
               </p>
             </div>
 
+            
             <div
               className="absolute right-4 w-12 h-12 rounded-full bg-[#082221] 
               flex items-center justify-center transition-transform transform hover:rotate-45 p-2 top-[205px] left-[36.56px] "
               style={{
+                backgroundColor: container.id === 3 ? '#BEBEBE' : '#082221',
+                
                 ...container.arrowPosition, // Dynamically set top, right, bottom, left
               }}
             >
               <svg width="400px" height="400px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="#000000" strokeLinecap="round"
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke={container.id === 3 ? "#082221" : "#FEFEFE"} strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                 />
@@ -338,11 +349,17 @@ const Hero = () => {
             alt="Descriptive Alt Text"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-stroke-2-white text-transparent font-bold text-[72px] uppercase w-[1300] h-[213px]" style={{
+          <div className="absolute inset-0 flex">
+            <h1 className="text-stroke-2-white text-transparent font-bold text-[72px] uppercase tracking-widest pl-8" style={{
               WebkitTextFillColor: "transparent", // Will override the text color
-              WebkitTextStrokeWidth: "1px",
+              WebkitTextStrokeWidth: "2px",
               WebkitTextStrokeColor: "white",
+              fontSize: "10vw", // Dynamically size text to occupy 75% width
+              width: "75%",
+              margin: "auto",
+             
+              
+              
             }}>
 
               JAISALMER
@@ -380,7 +397,7 @@ const Hero = () => {
                 className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-110"
               />
               <p
-                className="absolute font-poppins bottom-0 left-[0] w-[243px] h-[50px] stroke-white border  bg-[#D9D9D90F] opacity-100 transition-opacity duration-300 ease-in-out text-white text-center p-2 px-6 top-[286px] backdrop-blur-md bg-white/30"
+                className="absolute font-poppins bottom-0 left-[0] w-[243px] h-[50px] stroke-white border  opacity-100 transition-opacity duration-300 ease-in-out text-white text-center p-2 px-6 top-[286px] backdrop-blur-md bg-white/30 "
               >
                 {explore.title}
               </p>
